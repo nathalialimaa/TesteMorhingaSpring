@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoRHinga</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+
+
+    <link rel="stylesheet" href="./Styles/styles.css">
+    <script defer type="module" src="./Scripts/gauge.js"></script>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="brand">Morhinga</div>
+    </div>
+
+    <div class="map-container">
+        <div id="map"></div>
+        <div class="content">
+            <!-- Aqui você pode adicionar gráficos ou outras informações -->
+            <!-- Temperatura -->
+            <div class="gauge grafico" id="graficoTemperatura">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorTemperatura">0°C</span>
+                <span class="legenda">Temperatura</span>
+            </div>
+            <!-- Umidade -->
+            <div class="gauge grafico" id="graficoUmidade">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorUmidade">0%</span>
+                <span class="legenda">Umidade</span>
+            </div>
+            <!-- Pressão -->
+            <div class="gauge grafico" id="graficoPressao">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorPressao">0hPa</span>
+                <span class="legenda">Pressão</span>
+            </div>
+            <!-- Luz -->
+            <div class="gauge grafico" id="graficoLuz">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorLuz">0x</span>
+                <span class="legenda">Luz</span>
+            </div>
+            <!-- Gás -->
+            <div class="gauge grafico" id="graficoGas">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorGas">0</span>
+                <span class="legenda">CO2</span>
+            </div>
+            <!-- Ar -->
+            <div class="gauge grafico" id="graficoAr">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorAr">0</span>
+                <span class="legenda">Qualidade do Ar</span>
+            </div>
+            <!-- Velocidade do Vento -->
+            <div class="gauge grafico" id="graficoVelocidadeDoVento">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorVelocidadeDoVento">0</span>
+                <span class="legenda">Velocidade do Vento</span>
+            </div>
+            <!-- Voltagem -->
+            <div class="gauge grafico" id="graficoVoltagem">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorVoltagem">0</span>
+                <span class="legenda">Voltagem</span>
+            </div>
+            <!-- Rpm -->
+            <div class="gauge grafico" id="graficoRpm">
+                <div class="percentage"></div>
+                <div class="mask"></div>
+                <span class="value" id="mostradorRpm">0 Rpm</span>
+                <span class="legenda">Rpm</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="./Scripts/maps.js"></script>
+</body>
+</html>
