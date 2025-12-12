@@ -21,6 +21,7 @@
 
 package com.gpads.moringa.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 import com.gpads.moringa.entities.*;
 import com.gpads.moringa.service.*;
 import com.gpads.moringa.statistics.AnaliseService;
+import com.gpads.moringa.statistics.IntervaloTemporalEstatistico;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -87,6 +89,24 @@ public class MainController {
     public ResponseEntity<List<SensorDeSolo>> listarDadosSensorDeSolo() {
         List<SensorDeSolo> lista = sensorDeSoloService.findAll();
         return ResponseEntity.ok(lista);
+    }
+
+    // Endpoint para análise completa (novo)
+    @GetMapping("/analise-completa")
+    public ResponseEntity<List<IntervaloTemporalEstatistico>> analiseCompleta() {
+
+        // 1. Buscar dados de todas as fontes
+        List<Object> todosOsDados = new ArrayList<>();
+        todosOsDados.addAll(dadosEstacaoService.findAll());
+        todosOsDados.addAll(pluviometroService.findAll());
+        todosOsDados.addAll(sensorDePhService.findAll());
+        todosOsDados.addAll(sensorDeSoloService.findAll());
+
+        // 2. Processar os dados pelo AnaliseService
+        List<IntervaloTemporalEstatistico> resultado = analiseService.analise(todosOsDados);
+
+        // 3. Retornar JSON pronto para o front-end
+        return ResponseEntity.ok(resultado);
     }
 
 }
